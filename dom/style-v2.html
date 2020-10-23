@@ -1,0 +1,56 @@
+<script src="https://unpkg.com/vue"></script>
+
+<style>
+    #app {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .demo {
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+    }
+
+    .color1 {
+        background-color: red;
+    }
+
+    .color-2 {
+        background-color: green;
+    }
+
+    .color3 {
+        background-color: blue;
+    }
+</style>
+
+<div id="app">
+    <div class="demo" :class="style1" 
+        @click="useColor1 = !useColor1"></div>
+
+    <div class="demo" :class="{'color-2': useColor2}" 
+        @click="useColor2 = !useColor2"></div>
+        
+    <div class="demo" :class="{color3: useColor3}" 
+        @click="useColor3 = !useColor3"></div>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            useColor1: false,
+            useColor2: false,
+            useColor3: false
+        },
+        computed: {
+            style1() {
+                return {
+                    color1: this.useColor1,
+                    'color-2': !this.useColor1
+                }
+            }
+        }
+    })
+</script>
