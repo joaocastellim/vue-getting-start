@@ -5,12 +5,16 @@
     <template v-if="isLogged">
         <p>Logged User: {{ name }}</p>
         <p>Admin User</p>
-    </template>    
+    </template>
     <p v-else-if="isAnonymous">Is anonymous</p>
     <p v-else>No one user loged</p>
     <button @click="isLogged = !isLogged">
         {{ isLogged ? 'Logout' : 'Login' }}</button>
     <input type="checkbox" v-model="isAnonymous">
+    <hr>
+    <footer v-show="isLogged">
+        Developed for you!
+    </footer>
 </div>
 
 <script>
